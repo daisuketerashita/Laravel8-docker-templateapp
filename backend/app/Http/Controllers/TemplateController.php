@@ -20,6 +20,21 @@ class TemplateController extends Controller
         ]);
     }
 
+    //一覧ページ表示(タイトル選択)
+    public function show(Request $request,int $id){
+        //定型文のidを取得
+        $template_id = Template::find($request->id);
+        //ユーザーに紐付いた定型文を取得
+        $templates = Auth::user()->templates()->get();
+        // $this->authorize('view', $template_id);
+
+        return view('show',[
+            'template_id' => $template_id,
+            'templates' => $templates,
+            'current_template_id' => $id,
+        ]);
+    }
+
     //定型文制作ページ表示
     public function create(){
         return view('create');

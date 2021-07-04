@@ -9,7 +9,7 @@
             </div><!-- /.create_area -->
             <div class="list-group">
             @foreach($templates as $template)
-                <a href="{{ route('show',['id' => $template->id]) }}" class="list-group-item">
+                <a href="{{ route('show',['id' => $template->id]) }}" class="list-group-item {{ $current_template_id === $template->id ? 'active' : '' }}">
                 {{ $template->title }}
                 </a>
             @endforeach
@@ -18,11 +18,14 @@
     </div><!-- /.main_left -->
     <div class="main_right">
         <div class="right_header">
-            <button class="btn-copy modal1">COPY</button>
+            <button class="btn-copy modal1" onclick="copy()">COPY</button>
+            <a href="" class="buttons btn-edit" name="content">編集</a>
+            <a href="" class="buttons btn-delete" name="content" onClick="delete_alert(event);return false;">削除</a>
         </div><!-- /.right_header -->
         <div class="template_area">
-            <textarea></textarea>
+            <textarea>{{ $template_id->content }}</textarea>
         </div><!-- /.template_area -->
     </div><!-- /.main_right -->
 </div><!-- /.main_container -->
+
 @endsection

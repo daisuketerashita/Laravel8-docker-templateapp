@@ -20,6 +20,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     //トップページ
     Route::get('/',[TemplateController::class,'index'])->name('index');
+    //トップページ(選択)
+    Route::get('/show/{id}', [TemplateController::class,'show'])->name('show');
 
     //定型文制作ページ
     Route::get('/template/create/', [TemplateController::class,'create'])->name('create');
