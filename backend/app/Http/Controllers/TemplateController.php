@@ -55,4 +55,32 @@ class TemplateController extends Controller
         //リダイレクト
         return redirect()->route('index');
     }
+
+    //定型文編集ページ表示
+    public function edit(Request $request){
+        //リクエストされたIDで定型文を取得
+        $template = Template::find($request->id);
+        // $this->authorize('update', $template_id);
+
+        return view('edit',['template' => $template]);
+    }
+
+    //定型文編集処理
+    public function update(CreateTemplate $request){
+        //リクエストされたIDで定型文を取得
+        $template = Template::find($request->id);
+
+        //代入
+        $template->user_id = \Auth::id();
+        $template->title = $request->title;
+        $template->content = $request->content;
+
+        //データベースに書き込む
+        $template->save();
+
+        //リダイレクト
+        return redirect()->route('show',[
+            'id' => $template->id,
+        ]);
+    }
 }

@@ -19,7 +19,7 @@
     <div class="main_right">
         <div class="right_header">
             <button class="btn-copy modal1" onclick="copy()">COPY</button>
-            <a href="" class="buttons btn-edit" name="content">編集</a>
+            <a href="{{ route('edit',['id' => $template_id->id]) }}" class="buttons btn-edit" name="content">編集</a>
             <a href="" class="buttons btn-delete" name="content" onClick="delete_alert(event);return false;">削除</a>
         </div><!-- /.right_header -->
         <div class="template_area">
