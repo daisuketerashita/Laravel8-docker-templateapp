@@ -83,4 +83,15 @@ class TemplateController extends Controller
             'id' => $template->id,
         ]);
     }
+
+    //定型文削除処理
+    public function delete(Request $request){
+        $template = Template::find($request->id);
+
+        //削除処理
+        $template->delete();
+
+        //リダイレクト
+        return redirect()->route('index');
+    }
 }

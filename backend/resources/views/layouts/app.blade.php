@@ -81,5 +81,23 @@
           <small class='copyright'>Laravel TemplateApp 2021 copyright</small>
         </footer><!-- /.footer -->
     </div><!-- /#app -->
+
+    <script>
+        //コピーボタン処理
+        function copy() {
+            let text = document.getElementsByTagName("textarea")[0];
+            text.select();
+            document.execCommand("copy");
+        }
+
+        //削除ボタン処理
+        function delete_alert(e){
+            if(!window.confirm('本当に削除しますか？')){
+      
+            return false;
+            }
+        document.deleteform.submit();
+        };
+    </script>
 </body>
 </html>

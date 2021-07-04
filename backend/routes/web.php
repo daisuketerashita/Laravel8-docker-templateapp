@@ -30,4 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     //定型文編集ページ
     Route::get('/template/{id}/edit/', [TemplateController::class,'edit'])->name('edit');
     Route::post('/template/{id}/edit/', [TemplateController::class,'update'])->name('update');
+
+    //定型文削除ページ
+    Route::get('/template/{id}/delete',[TemplateController::class,'delete'])->name('delete');
 });
