@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 </div><!-- /.alert_area -->
-            <form action="" method="post">
+            <form action="{{ route('store') }}" method="post">
             @csrf
                 <div class="form_group">
                 <p><label class="create_title">タイトル</label></p>
