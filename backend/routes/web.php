@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//使い方ページ
+Route::get('/howto/',[TemplateController::class,'howto'])->name('howto');
+
 Route::group(['middleware' => 'auth'], function () {
     //トップページ
     Route::get('/',[TemplateController::class,'index'])->name('index');
