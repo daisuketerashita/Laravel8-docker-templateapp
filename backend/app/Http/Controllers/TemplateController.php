@@ -26,7 +26,7 @@ class TemplateController extends Controller
         $template_id = Template::find($request->id);
         //ユーザーに紐付いた定型文を取得
         $templates = Auth::user()->templates()->get();
-        // $this->authorize('view', $template_id);
+        $this->authorize('view', $template_id);
 
         return view('show',[
             'template_id' => $template_id,
@@ -60,7 +60,7 @@ class TemplateController extends Controller
     public function edit(Request $request){
         //リクエストされたIDで定型文を取得
         $template = Template::find($request->id);
-        // $this->authorize('update', $template_id);
+        $this->authorize('update', $template);
 
         return view('edit',['template' => $template]);
     }
